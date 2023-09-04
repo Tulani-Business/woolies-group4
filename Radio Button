@@ -1,0 +1,39 @@
+create a radio button that a user can use to select whether they are a new or returning student.
+
+import tkinter as tk
+from tkinter import IntVar
+
+def show_selection():
+    if student_type.get() == 1:
+        label.config(text="You selected: New Student")
+    else:
+        label.config(text="You selected: Returning Student")
+
+# Create the main window
+root = tk.Tk()
+root.title("Student Type Selection")
+
+# Create a label
+label = tk.Label(root, text="Select student type:")
+label.pack(pady=10)
+
+# Create an IntVar to store the selection
+student_type = IntVar()
+
+# Create and align radio buttons
+
+new_student_radio = tk.Radiobutton(root, text="New Student", variable=student_type, value=1)
+new_student_radio.pack()
+
+ # Align to the left
+new_student_radio.pack(anchor="w") 
+
+returning_student_radio = tk.Radiobutton(root, text="Returning Student", variable=student_type, value=2)
+returning_student_radio.pack()
+
+# Create a button to show selection
+show_button = tk.Button(root, text="Show Selection", command=show_selection)
+show_button.pack(pady=10)
+
+# Run the Tkinter event loop
+root.mainloop()
