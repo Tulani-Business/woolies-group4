@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeSpeed;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.content{border:2px solid red; display: flex;flex-direction: column;justify-content: center;}
+.radiogroup{border:2px solid red;}
+.std-form{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.form-input{margin:2%}
+.form-input > input {border: none;
+    border-bottom: 2px solid black;
+}
+.form-input>input:active  {
+    border-bottom: 2px solid red;}
+.button{ border: none; color:white; background-color: orange; padding :1%; border-radius: 10px;}

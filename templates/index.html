@@ -1,0 +1,71 @@
+{% extends 'base.html'%} {% block head%}
+<title>Student List</title>
+{% endblock %} {% block body%}
+<h1>Student List</h1>
+<div class="content">
+  <form action="/" method="POST" class="std-form">
+    <div class="radiogroup">
+      <label>New</label>
+      <input type="radio" value="new" name="stdStatus" id="stdNew" />
+      <label>Return</label>
+      <input type="radio" value="return" name="stdStatus" id="stdReturn" />
+    </div>
+    <div class="form-input">
+      <input
+        type="text"
+        name="stdLName"
+        id="stdLName"
+        placeholder="Last Name"
+      />
+    </div>
+    <div class="form-input">
+      <input
+        type="text"
+        name="stdFName"
+        id="stdFName"
+        placeholder="First Name"
+      />
+    </div>
+    <div class="form-input">
+      <input type="email" name="stdEmailP" id="stdEmailP" placeholder="Email" />
+    </div>
+    <div class="form-input">
+      <input type="text" name="stdId" id="stdId" placeholder="Id Number" />
+    </div>
+    <div class="form-input">
+      <input type="text" name="stdAddrs" id="stdAddrs" placeholder="Address" />
+    </div>
+    <input type="submit" value="Add Student" class="button" />
+  </form>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul class="flash-messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+  <table>
+    <tr>
+      <th>Name and Surname</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    {% for task in tasks%}
+    <tr>
+      <td>{{task.name}} {{task.lname}}</td>
+      <td>{{task.email}}</td>
+      <td>{{task.status}}</td>
+      <td>{{task.date_created.date()}}</td>
+      <td>
+        <a href="">delete</a>
+        <br />
+        <a href="">update</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
